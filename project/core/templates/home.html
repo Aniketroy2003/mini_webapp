@@ -2,9 +2,9 @@
 {% block title %}Home{% endblock title %}
 
 {% block body %}
-<div class="row m-4 ">
+<div class="row m-4">
 {% for i in task %}
-<div class="card" style="width: 18rem;">
+<div class="card m-4" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{i.title}}</h5>
       <p class="card-text">{{i.desc}}</p>

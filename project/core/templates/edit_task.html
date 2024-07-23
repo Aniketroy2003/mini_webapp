@@ -2,11 +2,12 @@
 {% block title %}Home{% endblock title %}
 
 {% block body %}
-<h1>Edit Todo</h1>
+<div class="container">
+<h1>Edit Task</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
-    <a href="{% url 'index' %}">Back to Todo List</a>
+</div>
 {% endblock body%}

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add Todo</h1>
+{% extends "base.html" %}
+
+{% block title %}Add task{% endblock title %}
+    {% block body %}
+    <div class="container">
+    <h1>Add Tasl</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add</button>
     </form>
-    <a href="{% url 'home' %}">Back to Todo List</a>
-</body>
-</html>
+</div>
+{%endblock%}
