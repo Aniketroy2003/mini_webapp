@@ -48,7 +48,12 @@ def profile(request):
 def home(request):
     user = request.user
     task = Tasks.objects.all()
-    return render(request, 'home.html',{'task':task, 'user':user})
+    query = request.GET.get('q', '')  # Get the search query from GET parameters
+    if query:
+        tasks = Tasks.objects.filter(user=user, title__icontains=query)
+    else:
+        tasks = Tasks.objects.filter(user=user)
+    return render(request, 'home.html',{'task':task, 'user':user, 'query': query})
 
 
 @login_required

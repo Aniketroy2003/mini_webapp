@@ -36,14 +36,22 @@
               
               
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" method="GET" action="{% url 'home' %}">
+              <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" value="{{ query|default:'' }}">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          </form>
           </div>
         </div>
       </nav>
-      
+      {% if query %}
+    <p>Search results for "{{ query }}":</p>
+{% endif %}
+
+{% for task in tasks %}
+    <!-- Display your task details here as per your existing template -->
+    <p>{{ task.title }}</p>
+    <!-- Add more details as needed -->
+{% endfor %}
       {% block body %}{% endblock body %}
       {% endif %}
 </body>
