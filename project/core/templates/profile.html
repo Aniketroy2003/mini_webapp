@@ -13,6 +13,7 @@
           <h5 class="card-title">{{i.title}}</h5>
           <p class="card-text">{{i.desc}}</p>
         </div>
+        <a href="{% url "edit_task" i.id %}" class="card-link">Edit</a>
       </div>
       {% endfor %}
     </div>

@@ -8,9 +8,9 @@
     <div class="card-body">
       <h5 class="card-title">{{i.title}}</h5>
       <p class="card-text">{{i.desc}}</p>
-      <a href="{% url "edit_task" i.id %}" class="card-link">Edit</a>
-      {% comment %} <a href="{% url "delete_task" i.id %}" class="card-link">Delete</a> {% endcomment %}
+      
     </div>
+    <span class="badge badge-secondary float-right">{{i.user.username}}</span>
   </div>
   {% endfor %}
 </div>

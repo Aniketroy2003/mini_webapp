@@ -3,7 +3,7 @@
 {% block title %}Add task{% endblock title %}
     {% block body %}
     <div class="container">
-    <h1>Add Tasl</h1>
+    <h1>Add Task</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
