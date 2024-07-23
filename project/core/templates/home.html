@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<div class="row m-4 ">
+{% for i in task %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.desc}}</p>
+      <a href="{% url "edit_task" i.id %}" class="card-link">Edit</a>
+      {% comment %} <a href="{% url "delete_task" i.id %}" class="card-link">Delete</a> {% endcomment %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock body %}

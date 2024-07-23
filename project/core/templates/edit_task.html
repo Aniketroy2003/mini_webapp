@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<h1>Edit Todo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'index' %}">Back to Todo List</a>
+{% endblock body%}
