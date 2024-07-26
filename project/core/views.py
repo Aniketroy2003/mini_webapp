@@ -48,11 +48,10 @@ def profile(request):
 def home(request):
     user = request.user
     task = Tasks.objects.all()
-    query = request.GET.get('q', '')  # Get the search query from GET parameters
+    query = request.GET.get('q', '')
     if query:
-        tasks = Tasks.objects.filter(user=user, title__icontains=query)
-    else:
-        tasks = Tasks.objects.filter(user=user)
+        task = Tasks.objects.filter(user=user, title__icontains=query)
+
     return render(request, 'home.html',{'task':task, 'user':user, 'query': query})
 
 
@@ -70,15 +69,15 @@ def add_task(request):
     return render(request, 'add_task.html', {'form': form})
 
 @login_required
-def delete_task(request, todo_id):
-    todo = get_object_or_404(Tasks, id=todo_id, user=request.user)
+def delete_task(request, task_id):
+    todo = get_object_or_404(Tasks, id=task_id, user=request.user)
     todo.delete()
     return redirect('home')
 
 
 @login_required
-def edit_task(request, todo_id):
-    todo = get_object_or_404(Tasks, id=todo_id, user=request.user)
+def edit_task(request, task_id):
+    todo = get_object_or_404(Tasks, id=task_id, user=request.user)
     if request.method == 'POST':
         form = TaskForm(request.POST,request.FILES, instance=todo)
         if form.is_valid():

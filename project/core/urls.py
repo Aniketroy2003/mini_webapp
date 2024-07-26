@@ -9,8 +9,8 @@ urlpatterns = [
     path('signup/', user_signup, name='signup'),
 
     path('add/', add_task, name='add_task'),
-    path('edit/<int:todo_id>/', edit_task, name='edit_task'),
-    path('delete/<int:todo_id>/', delete_task, name='delete_task'),
+    path('edit/<int:task_id>/', edit_task, name='edit_task'),
+    path('delete/<int:task_id>/', delete_task, name='delete_task'),
     path('profile/', profile, name='profile'),
 
 ]
